@@ -25,5 +25,6 @@ urlpatterns = [
     path('surveyor/', views.SurveyorView.as_view()),
     path('surveyor/<str:username>/', views.SurveyorDetail.as_view()),
     path('surveyor/registration/<str:username>/<str:email>/', views.SurveyorRegistration.as_view()),
-    path('surveyor/login/<str:username>/<str:password>/', views.SurveyorLogin.as_view())
+    path('surveyor/login/<str:username>/<str:password>/', views.SurveyorLogin.as_view()),
+    path('survey/', views.SurveyCRUD.as_view())
 ]

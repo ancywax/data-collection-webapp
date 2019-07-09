@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist.css">
+    <link rel="stylesheet" href="sun.css">
+
+    <title>Thank you for participating</title>
+  </head>
+  <body>
+    <div class = "container">
+
+      <form class="form-horizontal" action="#">
+        <h3 style="color: #00ffff;">1) Bio-Data</h3>
+        <div class = "jumbotron">
+
+          <div class="row">
+
+            <div class="col-md-4">
+
+              <div class="form-group">
+                <label class="control-label col-md-4" for="gender">(i) Gender:</label>
+                <div class="col-md-4">
+                  <div class="radio">
+                    <label><input type="radio" name="gender"> Female</label>
+                  </div>
+                  <div class="radio">
+                    <label><input type="radio" name="gender"> Male</label>
+                  </div>
+                  <div class="radio">
+                    <label><input type="radio" name="gender"> N/A</label>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+              <div class="form-group">
+                <label class="control-label col-lg-4" for="dob">(ii) Date of Birth:</label>
+                <div class="col-md-4">
+                  <input type="date" class="form-control" name="dob" id="dob">
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+              <div class="form-group">
+                <label class="control-label col-md-4" for="nationality">(iii) Nationality:</label>
+                <div class="col-md-4">
+                  <input type="text" class="form-control"name="nationality" id="nationality" >
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+      </div>
+      <h3  style="color: #00ffff;">2) Other information</h3>
+      <div class="jumbotron">
+
+        <div class="form-group">
+          <label class="control-label col-sm-10" for="region">(i) If you are within Uganda, which region are you located? (Please select from the list provided below!)</label>
+          <div class="col-sm-4">
+            <select  class="form-control" name="region"  id="region">
+              <option value = "kampala">Kampala</option>
+              <option value = "central">Central</option>
+              <option value = "northern">Northern</option>
+              <option value = "western">Western</option>
+              <option value = "eastern">Eastern</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-10" for="mstatus">(ii) What is your marital status? (Please select from the list provided below!)</label>
+          <div class="col-sm-4">
+            <select  class="form-control" name="mstatus"  id="mstatus">
+              <option value = "single">Single</option>
+              <option value = "relationship">In a relationship</option>
+              <option value = "engaged">Engaged</option>
+              <option value = "married">Married</option>
+              <option value = "divorced">Divorced or separated</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-10" for="children">(iii) If applicable, how many children or dependants do you have in your household?</label>
+          <div class="col-sm-4">
+            <input type="text" name="children" id="children"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-10" for="religion">(iv) Which religious denomination do you subscribe to if any? (Please select from the list provided below!)</label>
+          <div class="col-md-4">
+            <div class="radio">
+              <label><input type="radio" name="religion"> Anglican</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="religion"> Catholic</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="religion"> Islam</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="religion"> Orthodox</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="religion"> SDA</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="religion"> None of the above</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-10" for="education">(v) What is your education level or qualification? (Please select from the list provided below!)</label>
+          <div class="col-md-4">
+            <div class="radio">
+              <label><input type="radio" name="education"> Elementary(Primary)</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="education"> High School</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="education"> Bachelors Degree</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="education"> Post Graduate Degree or Diploma</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="education"> Phd</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-10" for="occupation">(iii) What is your occupation?</label>
+          <div class="col-sm-4">
+            <input type="text" name="occupation" id="occupation"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-md-10" for="income">(vi) What is your household or personal monthly income range? (Please select from the list provided below!)</label>
+          <div class="col-md-4">
+            <div class="radio">
+              <label><input type="radio" name="income"> Below $200</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="income"> $200 - $500</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="income"> $500 - $1,000</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="income"> $1,000 - $10,000</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="income"> Above $10,000</label>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </div>
+
+    </form>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </div>
+  </body>
+</html>

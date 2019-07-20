@@ -11,6 +11,7 @@ from rest_framework import viewsets
 from django.db.models import Q
 from . models import Surveyor, Survey, SurveyQuestion, SurveyFile
 from . serializers import SurveyorSerializer, SurveySerializer, SurveyQuestionSerializer, SurveyFileSerializer
+import json
 
 """
     API endpoint that allows Surveyor to be viewed.
@@ -99,12 +100,33 @@ class SurveyCRUD(APIView):
         #return Response(request.data["survey"]["title"])
 
     def post(self, request):
-        #print(request.data)
-        serializer = SurveySerializer(data=request.data["survey"])
-        if serializer.is_valid():
-            serializer.save()
-            surveyID = serializer.data["id"]
-            print(surveyID)
-            return Response(serializer.data["id"])
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        print(request.data)
+        if Surveyor.objects.filter(userName=request.data["survey"]["userName"]).exists():
+            serializer = SurveySerializer(data=request.data["survey"])
+            if serializer.is_valid():
+                serializer.save()
+                survey_id = serializer.data["id"]
+                print(survey_id)
+                for obj in request.data["surveyQuestion"]:
+                    obj["surveyID"] = survey_id
+                #survey_question = {}
+                queryset = request.data["surveyQuestion"]
+                serializer_q = SurveyQuestionSerializer(data=queryset, many=True)
+                if serializer_q.is_valid():
+                    serializer_q.save()
+                    print(serializer_q.data)
+                    #return HttpResponse(survey_id, content_type="text/plain")
+                    return Response(survey_id)
+                return Response(serializer_q.errors, status=status.HTTP_400_BAD_REQUEST)
 
+                """
+                for survey_question in request.data["surveyQuestion"]:
+                    serializer_question = SurveyQuestionSerializer(data=survey_question)
+                    if serializer_question.is_valid():
+                        serializer_question.save()
+                        print(serializer_question.data)
+                        #return HttpResponse("added", content_type="text/plain")
+                    return Response(serializer_question.errors, status=status.HTTP_400_BAD_REQUEST)
+                """
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return HttpResponse("user does not exist", content_type="text/plain")

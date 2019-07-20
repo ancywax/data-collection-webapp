@@ -9,8 +9,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import viewsets
 from django.db.models import Q
-from . models import Surveyor, Survey, SurveyQuestion, SurveyFile
-from . serializers import SurveyorSerializer, SurveySerializer, SurveyQuestionSerializer, SurveyFileSerializer
+from . models import Surveyor, Survey, SurveyQuestion, SurveyFile, Respondent
+from . serializers import SurveyorSerializer, SurveySerializer, SurveyQuestionSerializer, SurveyFileSerializer, RespondentSerializer
 import json
 
 """
@@ -130,3 +130,24 @@ class SurveyCRUD(APIView):
                 """
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         return HttpResponse("user does not exist", content_type="text/plain")
+
+
+"""
+    API endpoint that allows a Respondent instance to be added to the database.
+"""
+
+
+class RespondentCRUD(APIView):
+    def get(self, request):
+        print(request.data)
+        queryset = Respondent.objects.all()
+        serializer = RespondentSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        print(request.data)
+        serializer = RespondentSerializer(data=request.data["respondent"])
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

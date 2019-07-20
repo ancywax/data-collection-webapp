@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Surveyor, Survey, SurveyQuestion, SurveyFile
+from .models import Surveyor, Survey, SurveyQuestion, SurveyFile, Respondent
 
 
 class SurveyorSerializer(serializers.ModelSerializer):
@@ -28,4 +28,11 @@ class SurveyFileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = SurveyFile
+        fields = '__all__'
+
+
+class RespondentSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Respondent
         fields = '__all__'

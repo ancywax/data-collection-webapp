@@ -40,3 +40,21 @@ class SurveyFile(models.Model):
 
     def __str__(self):
         return '%s %s' % (self.file, self.surveyID)
+
+
+class Respondent(models.Model):
+    gender = models.CharField(max_length=50)
+    dob = models.CharField(max_length=50)
+    nationality = models.CharField(max_length=50)
+    region = models.CharField(max_length=50)
+    maritalStatus = models.CharField(max_length=50)
+    familySize = models.IntegerField()
+    religion = models.CharField(max_length=50)
+    educationLevel = models.CharField(max_length=50)
+    occupation = models.CharField(max_length=50)
+    monthlyEarningRange = models.CharField(max_length=50)
+    email = models.CharField(max_length=50, default='null')
+    telephone = models.CharField(max_length=50, default='null')
+
+    def __str__(self):
+        return '%s %s' % (self.gender, self.dob, self.region)

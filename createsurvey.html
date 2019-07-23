@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!--Jquery libraries-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+
+<script src="jquery-3.4.1.js" charset="UTF-8"></script>
+<script src="sun.js" charset="UTF-8"></script>
+<!--<link href="bootstrap-4.3.1-dist.css" rel="stylesheet">-->
+<link href="sun.css" rel="stylesheet">
+<style>
+body {
+  margin:2;
+  font: 400 15px Lato, sans-serif;
+  line-height: 1.8;
+}
+
+.navbar {
+  margin-bottom: 0;
+  overflow: hidden;
+  background-color:  #00ffff;
+  position: fixed;
+  border: 0;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  line-height: 1.42857143 !important;
+  letter-spacing: 4px;
+  border-radius: 0;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 12px !important;
+  font-family: Montserrat, sans-serif;
+}
+
+.navbar a:hover, .navbar a.active  {
+color: #f4511e !important;
+background-color: #fff !important;
+
+}
+
+.navbar a, .navbar .navbar-brand {
+  color: #000000 !important;
+}
+
+
+
+.jumbotron{
+  margin-top:70px;
+  background-color: white;
+}
+
+
+</style>
+<title>Create and Conduct Your Survey</title>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+
+<div class="navbar">
+<!--<div class="collapse navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav navbar-right">-->
+
+  <a href="index.html">SIGN OUT</a>
+  <a href="#">View Other Surveys Created By You</a>
+<!--</ul>
+</div>-->
+</div>
+
+
+<div id="survey" class="container">
+
+  <form class="" role="form">
+    <div class = "jumbotron" >
+      <div class="form-group form-group-lg" align = "center">
+        <!--<label class="col-lg-2 control-label" for="title"> <h4>Survey Title</h4></label>-->
+        <div class="col-sm-4">
+          <input class="form-control" type="text"  value="Untitled Survey" placeholder="Survey Title" style="text-align:center; textsize:20px" name="title" id="title" required>
+        <!--</div>-->
+    </div>
+    <div class="form-group form-group-sm">
+      <!--<label class="col-sm-2 control-label" for="description"><h6>Survey Description</h6></label>-->
+      <div class="col-sm-12">
+        <textarea class="form-control"   placeholder="Enter the description of your survey here:" name="description" id="description"></textarea>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- The case in which dynamic questions are added to -->
+    <div id="dynamic_field">
+      <!-- The case thats added dynamically -->
+      <div name="qn-1" id="qn-1">
+        <!-- Question Number -->
+        <div class="form-group">
+          <label>1.</label>
+        </div>
+        <!-- The Question -->
+        <div class="input-group mb-3" id = "inputgroup-1">
+          <textarea class="form-control" name="question-1" id="question-1"placeholder="Question here..." style="color:blue;"></textarea>
+        <div id= "select-1">
+          <div class="input-group-append" >
+            <span  id="questionTypes-1" name="questionTypes-1" class="input-group-text">
+              <select name="slct" class="form-control" id="1">
+                <option selected = "selected">Select answer type</option>
+                <option value = "text">Short answer</option>
+                <option value = "paragraph">Paragraph</option>
+                <option value = "single">Single Choice</option>
+                <option value = "multiple">Multiple Choices</option>
+                <option value = "file">File upload</option>
+                <option value = "dropdown">Dropdown</option>
+                <option value = "linear">Linear scale</option>
+                <option value = "mulgrid">Multiple Choice grid</option>
+                <option value = "checkgrid">Check box grid</option>
+                <option value = "date">Date</option>
+                <option value = "time">Time</option>
+              </select>
+            </span>
+          </div><!-- Delete icon -->
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <b><button id="1" name="remove" type="submit" class="remove btn-danger">X</button></b>
+            </span>
+          </div>
+        </div>
+        </div>
+        <!-- The Answer -->
+        <div id="answerTypes-1" name = "answerTypes-1" class="form-group">
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center;">
+      <button name="add" id="add" type="submit" class="btn btn-success">+ Next Question</button>
+    </div>
+    <div style="text-align:right ;">
+      <button type="submit" class="btn btn-primary">Finish</button>
+    </div>
+
+  </form>
+</div>
+
+</div>
+
+</body>
+</html>

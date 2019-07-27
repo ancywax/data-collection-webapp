@@ -57,4 +57,4 @@ class Respondent(models.Model):
     telephone = models.CharField(max_length=50, default='null')
 
     def __str__(self):
-        return '%s %s' % (self.gender, self.dob, self.region)
+        return '%s %s %s' % (self.gender, self.dob, self.region)

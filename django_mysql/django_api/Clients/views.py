@@ -92,12 +92,18 @@ class SurveyorLogin(APIView):
 class SurveyCRUD(APIView):
     def get(self, request):
         print(request.data)
-        if Survey.objects.filter(id=request.data["survey"]["id"], userName=request.data["survey"]["userName"]).exists():
-            queryset = Survey.objects.get(id=request.data["survey"]["id"], userName=request.data["survey"]["userName"])
-            serializer = SurveySerializer(queryset)
-            return Response(serializer.data)
-        return HttpResponse("False", content_type="text/plain")
-        #return Response(request.data["survey"]["title"])
+        if 'id' not in request.data["survey"] and 'title' not in request.data["survey"]:
+            if Survey.objects.filter(userName=request.data["survey"]["userName"]).exists():
+                queryset = Survey.objects.filter(userName=request.data["survey"]["userName"])
+                serializer = SurveySerializer(queryset, many=True)
+                return Response(serializer.data)
+            return HttpResponse("False", content_type="text/plain")
+        else:
+            if Survey.objects.filter(id=request.data["survey"]["id"], userName=request.data["survey"]["userName"]).exists():
+                queryset = Survey.objects.get(id=request.data["survey"]["id"], userName=request.data["survey"]["userName"])
+                serializer = SurveySerializer(queryset)
+                return Response(serializer.data)
+            return HttpResponse("False", content_type="text/plain")
 
     def post(self, request):
         print(request.data)
@@ -118,16 +124,6 @@ class SurveyCRUD(APIView):
                     #return HttpResponse(survey_id, content_type="text/plain")
                     return Response(survey_id)
                 return Response(serializer_q.errors, status=status.HTTP_400_BAD_REQUEST)
-
-                """
-                for survey_question in request.data["surveyQuestion"]:
-                    serializer_question = SurveyQuestionSerializer(data=survey_question)
-                    if serializer_question.is_valid():
-                        serializer_question.save()
-                        print(serializer_question.data)
-                        #return HttpResponse("added", content_type="text/plain")
-                    return Response(serializer_question.errors, status=status.HTTP_400_BAD_REQUEST)
-                """
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         return HttpResponse("user does not exist", content_type="text/plain")
 
